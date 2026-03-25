@@ -404,12 +404,13 @@
       line-height: 1;
       color: #c9d3ff;
       transition: transform 0.2s ease;
+      flex-shrink: 0;
     }
 
     .faq-answer {
       max-height: 0;
       overflow: hidden;
-      transition: max-height 0.28s ease;
+      transition: max-height 0.32s ease;
     }
 
     .faq-answer-content {
@@ -418,8 +419,17 @@
       font-size: 15px;
     }
 
-    .faq-item.active .faq-answer {
-      max-height: 280px;
+    .faq-answer-content strong {
+      color: #ffffff;
+    }
+
+    .faq-answer-content ul {
+      margin: 12px 0 0 18px;
+    }
+
+    .faq-answer-content li {
+      margin-bottom: 6px;
+      word-break: break-word;
     }
 
     .faq-item.active .faq-question span:last-child {
@@ -517,6 +527,7 @@
         <a href="#como-funciona">Como funciona</a>
         <a href="#compatibilidade">Compatibilidade</a>
         <a href="#faq">FAQ</a>
+        <a href="#revogacao">Revogação</a>
       </nav>
     </div>
   </header>
@@ -773,6 +784,147 @@
       </div>
     </section>
 
+    <section id="revogacao">
+      <div class="container">
+        <h2 class="section-title">Revogação de Certificado</h2>
+        <p class="section-subtitle">
+          Entenda como funciona a revogação e o que fazer nesses casos.
+        </p>
+
+        <div class="faq-wrap">
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>1. O que significa um certificado revogado?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Um certificado revogado indica que a Apple desativou a conta de desenvolvedor na qual seu dispositivo estava registrado. Uma vez que a conta é banida, o certificado associado a ela deixa de funcionar.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>2. O iToni revogou seu certificado?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Não, o iToni não tem autoridade sobre revogações de certificados. Apenas a Apple tem a capacidade de revogar contas de desenvolvedores, e isso faz sem critérios claros ou conhecidos.<br><br>
+                No entanto, aconselhamos nossos usuários a evitar o uso de certificados em versões beta do iOS ou a instalação de aplicativos pouco confiáveis.<br><br>
+                A Apple pode realizar verificações internas no número de usuários cadastrados e aplicativos assinados.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>3. Como posso evitar uma revogação?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Infelizmente, você não pode evitar completamente uma revogação, pois é algo que pode acontecer a qualquer momento.<br><br>
+                No entanto, você pode impedir que seu dispositivo verifique o status do certificado junto à Apple bloqueando os servidores DNS da Apple, permitindo que o certificado continue funcionando localmente.<br><br>
+                Fornecerei um guia detalhado e fácil de seguir sobre esse processo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>4. Quais são os próximos passos?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Se você adquiriu a versão econômica, será necessário comprar outro certificado.<br><br>
+                Mas se voce realizou a compra do certificado com direito a renovação, será disponibilizado um novo certificado para você sem custo.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" type="button">
+              <span>5. Como usar o NextDNS para bloquear servidores da Apple e verificar o status do certificado caso meu certificado seja revogado?</span>
+              <span>+</span>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                <strong>1. Cadastre-se no NextDNS e coloque estes links na blacklist</strong>
+
+                <ul>
+                  <li>ocsp2.apple.com</li>
+                  <li>valid.apple.com</li>
+                  <li>crl.apple.com</li>
+                  <li>certs.apple.com</li>
+                  <li>appattest.apple.com</li>
+                  <li>vpp.itunes.apple.com</li>
+                  <li>ocsp2-lb.apple.com</li>
+                  <li>ocsp2.g.aaplimg.com</li>
+                  <li>crl3.digicert.com</li>
+                  <li>crl4.digicert.com</li>
+                  <li>ocsp.digicert.cn</li>
+                  <li>ocsp.digicert.com</li>
+                  <li>ocsp2-lb.apple.com.akadns.net</li>
+                  <li>gsas.apple.com</li>
+                  <li>gsas.idms-apple.com.akadns.net</li>
+                  <li>ma-gsa-hb-prod.apple.com</li>
+                  <li>aidc.apple.com</li>
+                  <li>init.ess.apple.com</li>
+                  <li>iphone-ld.origin-apple.com</li>
+                  <li>crl5.digicert.com</li>
+                  <li>crl2.digicert.com</li>
+                  <li>crl.digicert.com</li>
+                  <li>crl2.apple.com</li>
+                  <li>crl3.apple.com</li>
+                  <li>guzzoni-apple-com.v.aapling.com</li>
+                  <li>axm-app.apple.com</li>
+                  <li>comm-cohort.ess.apple.com</li>
+                  <li>comm-main.ess.apple.com</li>
+                  <li>mesu.apple.com</li>
+                  <li>xp.apple.com</li>
+                  <li>ppq.apple.com</li>
+                  <li>ocsp.apple.com</li>
+                  <li>PPQ.apple.com</li>
+                </ul>
+
+                <strong>As URLs para a lista de permissões:</strong>
+
+                <ul>
+                  <li>app.localhost.direct</li>
+                  <li>api.palera.in</li>
+                  <li>api.development.push.apple.com</li>
+                  <li>register.appattest.apple.com</li>
+                  <li>mask-h2.icloud.com</li>
+                  <li>mask-canary.icloud.com</li>
+                  <li>mask-api.icloud.com</li>
+                  <li>api.push.apple.com</li>
+                  <li>push.apple.com</li>
+                </ul>
+
+                <strong>Bloqueios Atualizações:</strong>
+
+                <ul>
+                  <li>gdmf.apple.com</li>
+                </ul>
+
+                Você também pode usar qualquer DNS que preferir.<br><br>
+
+                <strong>Nota importante:</strong> Ao instalar ou abrir aplicativos pela primeira vez, é importante desabilitar o DNS completo ou simplesmente desabilitar a URL "ppq.apple.com". Isso é necessário para a instalação bem-sucedida dos aplicativos.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-footer">
+            <p>Precisa de ajuda com revogação ou dúvidas sobre seu certificado?</p>
+            <a class="faq-contact" href="https://wa.me/5511992432053?text=vim%20do%20site%2C%20regras%20e%20pre%C3%A7o" target="_blank">Falar no WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section>
       <div class="container">
         <div class="cta-block glass">
@@ -799,11 +951,30 @@
 
     faqItems.forEach((item) => {
       const button = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+
       button.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        faqItems.forEach((faq) => faq.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
+
+        faqItems.forEach((faq) => {
+          faq.classList.remove('active');
+          const faqAnswer = faq.querySelector('.faq-answer');
+          faqAnswer.style.maxHeight = null;
+        });
+
+        if (!isActive) {
+          item.classList.add('active');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
       });
+    });
+
+    window.addEventListener('resize', () => {
+      const activeItem = document.querySelector('.faq-item.active');
+      if (activeItem) {
+        const activeAnswer = activeItem.querySelector('.faq-answer');
+        activeAnswer.style.maxHeight = activeAnswer.scrollHeight + 'px';
+      }
     });
   </script>
 </body>
