@@ -567,6 +567,90 @@
       margin-top: 8px;
     }
 
+    .testimonial-highlight {
+      text-align: center;
+      margin-bottom: 24px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .carousel-shell {
+      position: relative;
+      padding: 0 54px;
+    }
+
+    .testimonials-carousel {
+      display: flex;
+      gap: 16px;
+      overflow: hidden;
+      scroll-behavior: smooth;
+      padding: 8px 0;
+    }
+
+    .testimonial-item {
+      min-width: 170px;
+      max-width: 170px;
+      border-radius: 22px;
+      padding: 8px;
+      flex-shrink: 0;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .testimonial-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .testimonial-item img {
+      width: 100%;
+      height: 340px;
+      display: block;
+      border-radius: 16px;
+      object-fit: cover;
+      object-position: top;
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 42px;
+      height: 42px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #ffffff;
+      font-size: 28px;
+      line-height: 1;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      transition: 0.25s ease;
+    }
+
+    .carousel-btn:hover {
+      background: rgba(255,255,255,0.14);
+      transform: translateY(-50%) scale(1.05);
+    }
+
+    .carousel-btn.prev {
+      left: 0;
+    }
+
+    .carousel-btn.next {
+      right: 0;
+    }
+
+    .testimonial-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 16px;
+    }
+
     @media (max-width: 980px) {
       .hero-grid,
       .grid-4,
@@ -580,6 +664,19 @@
 
       .menu {
         display: none;
+      }
+
+      .carousel-shell {
+        padding: 0 44px;
+      }
+
+      .testimonial-item {
+        min-width: 150px;
+        max-width: 150px;
+      }
+
+      .testimonial-item img {
+        height: 300px;
       }
     }
 
@@ -626,6 +723,32 @@
       .hero-point-text small {
         font-size: 12px;
       }
+
+      .carousel-shell {
+        padding: 0 36px;
+      }
+
+      .testimonial-highlight {
+        font-size: 16px;
+      }
+
+      .testimonial-item {
+        min-width: 135px;
+        max-width: 135px;
+        padding: 6px;
+        border-radius: 18px;
+      }
+
+      .testimonial-item img {
+        height: 270px;
+        border-radius: 14px;
+      }
+
+      .carousel-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 24px;
+      }
     }
   </style>
 </head>
@@ -640,6 +763,7 @@
       <nav class="menu">
         <a href="#inicio">Início</a>
         <a href="#beneficios">Benefícios</a>
+        <a href="#depoimentos">Depoimentos</a>
         <a href="#como-funciona">Como funciona</a>
         <a href="#compatibilidade">Compatibilidade</a>
         <a href="#faq">FAQ</a>
@@ -737,6 +861,55 @@
             <p>Pagamento por Pix com chave nacional e instruções claras para conclusão do contato.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="depoimentos">
+      <div class="container">
+        <h2 class="section-title">Clientes satisfeitos</h2>
+        <p class="section-subtitle">
+          Veja alguns relatos enviados por clientes após a conclusão do processo.
+        </p>
+
+        <div class="testimonial-highlight">
+          ⭐ +8k clientes satisfeitos
+        </div>
+
+        <div class="carousel-shell">
+          <button class="carousel-btn prev" type="button" onclick="scrollTestimonials(-1)">‹</button>
+
+          <div class="testimonials-carousel" id="testimonialsCarousel">
+            <a href="img/dep1.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep1.jpg" alt="Depoimento de cliente 1">
+            </a>
+
+            <a href="img/dep2.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep2.jpg" alt="Depoimento de cliente 2">
+            </a>
+
+            <a href="img/dep3.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep3.jpg" alt="Depoimento de cliente 3">
+            </a>
+
+            <a href="img/dep4.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep4.jpg" alt="Depoimento de cliente 4">
+            </a>
+
+            <a href="img/dep5.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep5.jpg" alt="Depoimento de cliente 5">
+            </a>
+
+            <a href="img/dep6.jpg" target="_blank" class="testimonial-item glass">
+              <img src="img/dep6.jpg" alt="Depoimento de cliente 6">
+            </a>
+          </div>
+
+          <button class="carousel-btn next" type="button" onclick="scrollTestimonials(1)">›</button>
+        </div>
+
+        <p class="testimonial-note">
+          Toque em um depoimento para abrir a imagem.
+        </p>
       </div>
     </section>
 
@@ -1112,6 +1285,48 @@
         activeAnswer.style.maxHeight = activeAnswer.scrollHeight + 'px';
       }
     });
+
+    function scrollTestimonials(direction) {
+      const carousel = document.getElementById('testimonialsCarousel');
+      const item = carousel.querySelector('.testimonial-item');
+      if (!item) return;
+
+      const itemWidth = item.offsetWidth + 16;
+      carousel.scrollBy({
+        left: direction * (itemWidth * 2),
+        behavior: 'smooth'
+      });
+    }
+
+    function startTestimonialsAutoplay() {
+      const carousel = document.getElementById('testimonialsCarousel');
+      if (!carousel) return;
+
+      let autoplay = setInterval(() => {
+        const maxScrollLeft = carousel.scrollWidth - carousel.clientWidth;
+
+        if (carousel.scrollLeft >= maxScrollLeft - 5) {
+          carousel.scrollTo({
+            left: 0,
+            behavior: 'smooth'
+          });
+        } else {
+          const item = carousel.querySelector('.testimonial-item');
+          if (!item) return;
+
+          const itemWidth = item.offsetWidth + 16;
+          carousel.scrollBy({
+            left: itemWidth,
+            behavior: 'smooth'
+          });
+        }
+      }, 2500);
+
+      carousel.addEventListener('mouseenter', () => clearInterval(autoplay));
+      carousel.addEventListener('touchstart', () => clearInterval(autoplay), { passive: true });
+    }
+
+    window.addEventListener('load', startTestimonialsAutoplay);
   </script>
 </body>
 </html>
